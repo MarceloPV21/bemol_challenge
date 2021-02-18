@@ -63,8 +63,8 @@ Then the first list item should be
     #Should be equal    ${PRICE}        #${first_item}.price
 
     Wait Until Element Is Visible   ${ITEM_NAME}    5
-    Page Should Contain     ibis budget Manaus  
-    Page Should Contain     Muito bom
-    Page Should Contain     129
+    Page Should Contain     ${hotel_name}  
+    Page Should Contain     ${hotel_rating}
+    Page Should Contain     ${hotel_price}
     
     

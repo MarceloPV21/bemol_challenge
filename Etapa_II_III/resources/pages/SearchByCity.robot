@@ -14,6 +14,9 @@ ${ITEM_NAME}               css:span[title="ibis budget Manaus"]
 ${RATING}                  css:strong[class="rating-number"]
 ${PRICE}                   css:span[class="accommodation-list__price--87115"]
 @{LIST}                    css:ol[id="js_itemlist"]
+${hotel_name}              ibis budget Manaus
+${hotel_rating}            Muito bom
+${hotel_price}             129
 
 
 
