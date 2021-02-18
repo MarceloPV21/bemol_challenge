@@ -2,15 +2,15 @@
 
 Test project developed with Robot Framework and Python.
 
-How to
+# How to
 
-Markup: * Install requirements -> pip install -r requirements.txt
-        * Create a folder called logs on root directory
-        * Run all tests: robot -d logs tests/web
-        * Run by tag: robot -d logs -i <tag> tests/web
+* Install requirements: pip install -r requirements.txt
+* Create a folder called logs on root directory
+* Run all tests: robot -d logs tests/web
+* Run by tag: robot -d logs -i tag tests/web
 
-#Notes
+# Notes
 
-Markup: * This project can be improved using Test Template technique on SearchByCep feature avoiding to repeat steps. 
-        * Could be use keywords on Pages to avoiding write a lot of code on KWS file.
-        * This project use Page Objects pattern.
+* This project can be improved using Test Template technique on SearchByCep feature avoiding to repeat steps. 
+* Could be use keywords on Pages to avoiding write a lot of code on KWS file.
+* This project use Page Objects pattern.
