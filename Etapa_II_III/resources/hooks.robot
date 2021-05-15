@@ -1,18 +1,16 @@
 ***Keywords***
 
-#${browser} =    headless
+${browser} =    headless
 
 Start Session
     
-#    Run Keyword If      "${browser}" == "headless"
-#    ...     Open Chrome Headless
-#    Run Keyword If      "${browser}" == "chrome"
-#    ...     Open Chrome
+    Run Keyword If      "${browser}" == "headless"
+    ...     Open Chrome Headless
+    
+    Run Keyword If      "${browser}" == "chrome"
+    ...     Open Chrome
 
-#    Set Window Size     1440    900 
-
-    Open Browser    about:blank     chrome              options=add_experimental_option('excludeSwitches', ['enable-logging'])
-    Maximize Browser Window
+    Set Window Size     1440    900 
 
 
 Finish TestCase

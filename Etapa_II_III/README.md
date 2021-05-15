@@ -11,11 +11,7 @@ Test project developed with Robot Framework and Python.
 
 # Notes
 
-* This project can be improved using Test Template technique on SearchByCep feature avoiding to repeat steps. 
-* Could be use keywords on Pages to avoiding write a lot of code on KWS file.
+* This project can be improved using Test Template technique on SearchByCep feature avoiding to     repeat steps.
 * This project use Page Objects pattern.
 * Could be created a Dockerfile to build this image and use as docker container
-
 * Push to Docker hub to be used for others teammate easily.
-
-* Could be put on CI pipeline on Jenkins, Azure, Circle CI and others.

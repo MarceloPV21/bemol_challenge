@@ -1,0 +1,6 @@
+nome_,email_,password_,admin_,error_message
+,test@test.com,432,true,nome não pode ficar em branco
+joaobj,test@test.com,432,true,Este email já está sendo usado
+keyj,,123,true,email não pode ficar em branco
+weewew,wewe@gmail.com,,false,password não pode ficar em branco
+lkjj,lkjh@gmail.com,123,,administrador deve ser 'true' ou 'false'

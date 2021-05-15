@@ -2,6 +2,7 @@
 
 #Search By CEP and Name
 Given user access SeachByCEP Page
+    Wait Until Element Is Visible       ${SEARCH_CEP_BUTTON}    5
     Click ELement       ${SEARCH_CEP_BUTTON}
     
 
@@ -42,6 +43,7 @@ Then the search should return adress reletad to name informed
 
 Given that user make a search by city
 
+    Wait Until Element Is Visible    ${SEARCH_FIELD}       5
     Input Text      ${SEARCH_FIELD}    Manaus
     Sleep   1.5
     Click Element   ${SEARCH_BUTTON}
@@ -56,15 +58,8 @@ When user sort by Rating and Suggestions
 
 Then the first list item should be 
 
-    # The logic is this, but I can't find the right commands
-    #${first_item}=      Get From List   @{LIST}     0
-    #Should be equal    ${ITEM_NAME}    ${first_item}.name
-    #Should be equal    ${RATING}       #${first_item}.rating
-    #Should be equal    ${PRICE}        #${first_item}.price
-
-    Wait Until Element Is Visible   ${ITEM_NAME}    5
-    Page Should Contain     ${hotel_name}  
-    Page Should Contain     ${hotel_rating}
-    Page Should Contain     ${hotel_price}
-    
+    Wait Until Element Is Visible  ${hotel_name}  5
+    Element Text Should Be      ${hotel_name}       Blue Tree Premium Manaus
+    Element Text Should Be      ${hotel_rating}     8.0
+    Element Text Should Be      ${hotel_price}      R$168
     
