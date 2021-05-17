@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Create User",
+			"name": "Create Valid User",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -33,11 +33,19 @@
 							"    pm.response.to.have.status(201);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Messge should be Cadastro realizado com sucesso and Id should not be empty\", function () {\r",
+							"pm.test(\"Message should be Cadastro realizado com sucesso\", function () {\r",
 							"    let jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.message).to.eql('Cadastro realizado com sucesso');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ID should not be empty\", function (){\r",
+							"    let jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData._id).not.eql(null)\r",
 							"    pm.environment.set('id_user',jsonData._id)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -63,6 +71,81 @@
 					],
 					"path": [
 						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error messages for invalid user registers",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let chars = 'abcdefghijklmnopqrstuvwxyz1234567890'\r",
+							"let string = ''\r",
+							"let email = ''\r",
+							"for(var i=0; i<7; i++){\r",
+							"    string += chars[Math.floor(Math.random() * chars.length)]\r",
+							"}\r",
+							"email = string + '@bemoldigital.com'\r",
+							"pm.environment.set(\"email\", email)\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let err_message = pm.iterationData.get(\"error_message\")\r",
+							"console.log(err_message)\r",
+							"\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check error message \" + err_message, function () {\r",
+							"    pm.expect(pm.response.text()).to.include(err_message);\r",
+							"   \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"{{nome_}}\",\r\n  \"email\": \"{{email_}}\",\r\n  \"password\": \"{{password_}}\",\r\n  \"administrador\": \"{{admin_}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "error_message",
+							"value": "{{Error_message}}",
+							"disabled": true
+						}
 					]
 				}
 			},

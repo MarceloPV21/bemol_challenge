@@ -33,7 +33,7 @@ And user input name
 Then the search should return adress reletad to name informed
 
     Wait Until Element Is Visible    ${BACK_BUTTON}       5
-    Page Should Contain              ${adress2}
+    Page Should Contain              ${adress}
     Page Should Contain              ${name}
     Page Should Contain              ${cep2}
     Page Should Contain              ${district}

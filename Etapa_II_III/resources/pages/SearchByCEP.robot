@@ -14,7 +14,6 @@ ${name}                         Lojas Bemol
 ${adress}                       Rua Miranda Leão
 ${district}                     Centro
 ${state}                        Manaus/AM
-${adress2}                      Rua Miranda Leão
 ${cep2}                         69005-901
 
 
